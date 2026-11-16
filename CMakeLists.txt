@@ -25,7 +25,6 @@ add_executable(rendererWorkshop
 )
 
 target_include_directories(rendererWorkshop PRIVATE
-	include
 	external/stb
 )
 
@@ -40,10 +39,8 @@ add_custom_command(TARGET rendererWorkshop POST_BUILD
         ${CMAKE_SOURCE_DIR}/shaders
         $<TARGET_FILE_DIR:rendererWorkshop>/shaders
 )
-
 add_custom_command(TARGET rendererWorkshop POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
         ${CMAKE_SOURCE_DIR}/textures
         $<TARGET_FILE_DIR:rendererWorkshop>/textures
 )
-
