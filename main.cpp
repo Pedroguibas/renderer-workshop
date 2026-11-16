@@ -6,7 +6,7 @@ using std::cout;
 
 GLFWwindow *createWindow() {
   if (!glfwInit()) {
-    cout << "Failed to initialize GLFW\n";
+    cout << "Falha ao iniciar GLFW\n";
     return NULL;
   }
 
@@ -16,10 +16,10 @@ GLFWwindow *createWindow() {
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
   GLFWwindow *window =
-    glfwCreateWindow(1280, 720, "RenderIO", nullptr, nullptr);
+    glfwCreateWindow(1280, 720, "Renderer Workshop", nullptr, nullptr);
 
   if (!window) {
-    cout << "Failed to create window\n";
+    cout << "Falha ao criar a janela\n";
     return NULL;
   }
 
@@ -27,7 +27,7 @@ GLFWwindow *createWindow() {
   glfwSwapInterval(1);
 
   if (!gladLoadGL(glfwGetProcAddress)) {
-    cout << "Failed to load GLAD\n";
+    cout << "Falha ao carregar GLAD\n";
     return NULL;
   }
 
@@ -42,13 +42,6 @@ int main() {
   while (!glfwWindowShouldClose(window)) {
     glfwPollEvents();
 
-    int w, h;
-    glfwGetFramebufferSize(window, &w, &h);
-    glViewport(0, 0, w, h);
-
-
-    glClearColor(0.1f, 0.1f, 0.15f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     glfwSwapBuffers(window);
   }
