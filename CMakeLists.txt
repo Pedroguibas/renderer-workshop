@@ -24,6 +24,8 @@ target_include_directories(glad SYSTEM PUBLIC
 add_executable(rendererWorkshop
 	main.cpp
 	src/Shader.cpp
+	src/Texture.cpp
+	src/stb_image.cpp
 )
 
 target_include_directories(rendererWorkshop PRIVATE
