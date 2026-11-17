@@ -17,11 +17,13 @@ add_library(glad
 )
 
 target_include_directories(glad SYSTEM PUBLIC
+	include
 	external/glad/include
 )
 
 add_executable(rendererWorkshop
 	main.cpp
+	src/Shader.cpp
 )
 
 target_include_directories(rendererWorkshop PRIVATE
@@ -33,6 +35,8 @@ target_link_libraries(rendererWorkshop PRIVATE
 	glad
 	glm::glm
 )
+
+target_compile_definitions(rendererWorkshop PRIVATE GLFW_INCLUDE_NONE)
 
 add_custom_command(TARGET rendererWorkshop POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
